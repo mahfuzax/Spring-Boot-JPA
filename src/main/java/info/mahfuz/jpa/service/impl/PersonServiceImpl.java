@@ -1,6 +1,6 @@
 package info.mahfuz.jpa.service.impl;
 
-import info.mahfuz.jpa.info.mahfuz.jpa.repo.PersonRepository;
+import info.mahfuz.jpa.repo.PersonRepository;
 import info.mahfuz.jpa.model.Person;
 import info.mahfuz.jpa.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;

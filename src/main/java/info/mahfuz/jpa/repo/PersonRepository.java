@@ -1,4 +1,4 @@
-package info.mahfuz.jpa.info.mahfuz.jpa.repo;
+package info.mahfuz.jpa.repo;
 
 import info.mahfuz.jpa.model.Person;
 import org.springframework.data.repository.CrudRepository;
