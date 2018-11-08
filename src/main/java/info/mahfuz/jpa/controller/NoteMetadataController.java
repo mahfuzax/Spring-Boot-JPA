@@ -2,8 +2,6 @@ package info.mahfuz.jpa.controller;
 
 import info.mahfuz.jpa.model.NoteMetadata;
 import info.mahfuz.jpa.model.SearchCriteria;
-import info.mahfuz.jpa.predicate.NoteMetadataSpecification;
-import info.mahfuz.jpa.repo.NoteMetadataRepository;
 import info.mahfuz.jpa.service.NoteMetadataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +18,7 @@ public class NoteMetadataController {
     @GetMapping("/get/{id}")
     public @ResponseBody
     Optional<NoteMetadata> getById(@PathVariable int id) {
-        return service.getBy(id);
+        return service.get(id);
     }
 
     @PostMapping("/add")
