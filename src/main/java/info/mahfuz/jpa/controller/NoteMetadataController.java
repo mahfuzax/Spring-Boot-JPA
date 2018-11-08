@@ -16,7 +16,6 @@ import java.util.Optional;
 @RequestMapping("/note")
 public class NoteMetadataController {
     @Autowired private NoteMetadataService service;
-    @Autowired private NoteMetadataRepository repository;
 
     @GetMapping("/get/{id}")
     public @ResponseBody
@@ -29,12 +28,10 @@ public class NoteMetadataController {
         service.add(metadata);
     }
 
-    @GetMapping("/search")
-    public @ResponseBody List<NoteMetadata> search() {
-        SearchCriteria criteria = new SearchCriteria("scribeId", "=", "4");
-        NoteMetadataSpecification specification = new NoteMetadataSpecification(criteria);
-        List<NoteMetadata> noteMetadataList = repository.findAll(specification);
-        return noteMetadataList;
+    @GetMapping("/search/{scribeId}")
+    public @ResponseBody List<NoteMetadata> search(@PathVariable int scribeId) {
+        SearchCriteria criteria = new SearchCriteria("scribeId", "=", scribeId);
+        return service.search(criteria);
     }
 
 }
