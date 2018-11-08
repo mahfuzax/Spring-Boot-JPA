@@ -30,4 +30,10 @@ dependencies {
     runtimeOnly('mysql:mysql-connector-java')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     compile('org.projectlombok:lombok')
+    compile "com.querydsl:querydsl-apt:4.1.4."
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
+}
+test {
+    useJUnitPlatform()
 }

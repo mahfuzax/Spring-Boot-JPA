@@ -30,13 +30,12 @@ public class PersonController {
 
 
     @DeleteMapping("/delete/{id}")
-    public void add(@PathVariable int id) {
+    public void delete(@PathVariable int id) {
         personService.delete(id);
     }
 
     @GetMapping(path="/all")
     public @ResponseBody Iterable<Person> getAll() {
-        // This returns a JSON or XML with the users
         return personService.getAll();
     }
 }
