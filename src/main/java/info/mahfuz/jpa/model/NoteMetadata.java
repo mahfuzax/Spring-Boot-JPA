@@ -19,7 +19,7 @@ public class NoteMetadata {
 
     private int partnerId;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "metadata")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "metadata", fetch = FetchType.LAZY)
     private Patient patient;
 
 }
