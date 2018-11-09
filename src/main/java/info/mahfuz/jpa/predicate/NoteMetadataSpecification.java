@@ -29,7 +29,7 @@ public class NoteMetadataSpecification implements Specification<NoteMetadata> {
     @Override
     public Predicate toPredicate(Root<NoteMetadata> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
         if (criteria.getOperation().equalsIgnoreCase(">")) {
-            return criteriaBuilder.greaterThan(root.<String>get(criteria.getKey()), criteria.getValue().toString());
+            return criteriaBuilder.greaterThan(root.get(criteria.getKey()), criteria.getValue().toString());
         } else if(criteria.getOperation().equalsIgnoreCase("=")) {
             return criteriaBuilder.equal(root.<String>get(criteria.getKey()), criteria.getValue().toString());
         }

@@ -8,15 +8,15 @@ import javax.persistence.*;
 @Data
 public class CommentContent {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "noteContentId", referencedColumnName = "id")
+    @JoinColumn(name = "noteContentId")
     private NoteContent noteContent;
 
     @OneToOne
-    @JoinColumn(name = "commentId", referencedColumnName = "id")
+    @JoinColumn(name = "commentId")
     private Comment comment;
 
     private String value;

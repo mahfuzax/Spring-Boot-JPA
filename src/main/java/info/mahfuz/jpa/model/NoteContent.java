@@ -8,10 +8,10 @@ import javax.persistence.*;
 @Entity
 public class NoteContent {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "patientId", referencedColumnName = "id")
+    @JoinColumn(name = "patientId")
     private Patient patient;
 }

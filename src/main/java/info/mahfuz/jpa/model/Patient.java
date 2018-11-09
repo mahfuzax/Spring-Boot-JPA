@@ -9,13 +9,13 @@ import java.util.List;
 @Entity
 public class Patient {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
     @OneToOne
-    @JoinColumn(name = "noteId", referencedColumnName = "id")
+    @JoinColumn(name = "noteId")
     private NoteMetadata metadata;
 
     @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -8,12 +8,12 @@ import javax.persistence.*;
 @Data
 public class Card {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
     @OneToOne
-    @JoinColumn(name = "patientId", referencedColumnName = "id")
+    @JoinColumn(name = "patientId")
     private Patient patient;
 }
