@@ -12,11 +12,11 @@ public class CommentContent {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "noteContentId")
+    @JoinColumn(name = "noteContentId", referencedColumnName = "id")
     private NoteContent noteContent;
 
     @OneToOne
-    @JoinColumn(name = "commentId")
+    @JoinColumn(name = "commentId", referencedColumnName = "id")
     private Comment comment;
 
     private String value;

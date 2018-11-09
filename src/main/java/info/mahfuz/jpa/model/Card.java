@@ -14,6 +14,6 @@ public class Card {
     private String name;
 
     @OneToOne
-    @JoinColumn(name = "patientId")
+    @JoinColumn(name = "patientId", referencedColumnName = "id")
     private Patient patient;
 }

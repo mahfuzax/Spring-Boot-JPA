@@ -15,7 +15,7 @@ public class Patient {
     private String name;
 
     @OneToOne
-    @JoinColumn(name = "noteId")
+    @JoinColumn(name = "noteId", referencedColumnName = "id")
     private NoteMetadata metadata;
 
     @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

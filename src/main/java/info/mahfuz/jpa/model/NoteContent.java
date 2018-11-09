@@ -12,6 +12,6 @@ public class NoteContent {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "patientId")
+    @JoinColumn(name = "patientId", referencedColumnName = "id")
     private Patient patient;
 }
