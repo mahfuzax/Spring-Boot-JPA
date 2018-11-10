@@ -1,4 +1,4 @@
-package info.mahfuz.jpa.predicate;
+package info.mahfuz.jpa.specification;
 
 import info.mahfuz.jpa.model.NoteMetadata;
 import info.mahfuz.jpa.model.SearchCriteria;

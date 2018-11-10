@@ -42,7 +42,7 @@ public class NoteMetadataServiceTest extends BaseTest {
 
     @Test
     public void getAllNoteMetadata() {
-        SearchCriteria criteria = new SearchCriteria("scribeId", "=", 1);
+        SearchCriteria criteria = new SearchCriteria("patient.name", "=", "Patient 1");
         List<NoteMetadata> noteMetadataList = noteMetadataService.search(criteria);
         assertNotNull(noteMetadataList);
     }

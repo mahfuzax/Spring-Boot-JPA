@@ -2,7 +2,7 @@ package info.mahfuz.jpa.service.impl;
 
 import info.mahfuz.jpa.model.NoteMetadata;
 import info.mahfuz.jpa.model.SearchCriteria;
-import info.mahfuz.jpa.predicate.NoteMetadataSpecification;
+import info.mahfuz.jpa.specification.NoteMetadataSpecification;
 import info.mahfuz.jpa.repo.NoteMetadataRepository;
 import info.mahfuz.jpa.service.NoteMetadataService;
 import org.springframework.stereotype.Service;
