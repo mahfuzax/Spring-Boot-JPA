@@ -1,12 +1,15 @@
 package info.mahfuz.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
+@EqualsAndHashCode(exclude="metadata")
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,8 +17,9 @@ public class Patient {
 
     private String name;
 
-    @OneToOne
-    @JoinColumn(name = "noteId")
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JsonBackReference
     private NoteMetadata metadata;
 
     @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

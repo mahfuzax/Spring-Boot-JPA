@@ -1,5 +1,6 @@
 package info.mahfuz.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,7 +20,8 @@ public class NoteMetadata {
 
     private int partnerId;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "metadata", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "metadata", fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Patient patient;
 
 }

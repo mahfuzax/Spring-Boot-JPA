@@ -13,7 +13,12 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/note")
 public class NoteMetadataController {
-    @Autowired private NoteMetadataService service;
+    private final NoteMetadataService service;
+
+    @Autowired
+    public NoteMetadataController(NoteMetadataService service) {
+        this.service = service;
+    }
 
     @GetMapping("/get/{id}")
     public @ResponseBody

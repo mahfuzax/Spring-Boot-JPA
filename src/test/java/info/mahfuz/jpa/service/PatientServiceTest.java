@@ -3,14 +3,12 @@ package info.mahfuz.jpa.service;
 import info.mahfuz.jpa.model.NoteMetadata;
 import info.mahfuz.jpa.model.Patient;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class PatientServiceTest {
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Optional;
+
+public class PatientServiceTest extends BaseTest {
     @Autowired
     PatientService patientService;
 
@@ -19,12 +17,18 @@ public class PatientServiceTest {
         NoteMetadata metadata = new NoteMetadata();
         metadata.setProviderId(1);
         metadata.setPartnerId(1);
-        metadata.setScribeId(1);
+        metadata.setScribeId(7);
 
         Patient patient = new Patient();
-        patient.setName("Patient 1");
-        //patient.setMetadata(metadata);
+        patient.setName("Patient X");
+        patient.setMetadata(metadata);
         patientService.add(patient);
     }
 
+    @Test
+    public void getPatient() {
+        Optional<Patient> patient = patientService.get(1);
+        assertNotNull(patient);
+        patient.ifPresent(patient1 -> assertEquals(1, patient1.getId()));
+    }
 }

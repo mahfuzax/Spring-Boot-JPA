@@ -2,9 +2,11 @@ package info.mahfuz.jpa.service;
 
 import info.mahfuz.jpa.model.NoteMetadata;
 import info.mahfuz.jpa.model.Patient;
+import info.mahfuz.jpa.model.SearchCriteria;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
@@ -35,6 +37,13 @@ public class NoteMetadataServiceTest extends BaseTest {
     @Test
     public void getNoteMetadata() {
         Optional<NoteMetadata> noteMetadata = noteMetadataService.get(2);
-        assertEquals(2, noteMetadata.get().getId());
+        noteMetadata.ifPresent(noteMetadata1 -> assertEquals(2, noteMetadata1.getId()));
+    }
+
+    @Test
+    public void getAllNoteMetadata() {
+        SearchCriteria criteria = new SearchCriteria("scribeId", "=", 1);
+        List<NoteMetadata> noteMetadataList = noteMetadataService.search(criteria);
+        assertNotNull(noteMetadataList);
     }
 }
